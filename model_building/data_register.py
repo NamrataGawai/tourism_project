@@ -3,7 +3,7 @@ from huggingface_hub import HfApi, create_repo
 import os
 
 
-repo_id = "Namrata-gawai/MLOps-Tourism-Package-Prediction-dataset"
+repo_id = "Namrata-gawai/MLOps-Tourism-Package-Prediction"
 repo_type = "dataset"
 
 # Initialize API client
@@ -19,7 +19,7 @@ except RepositoryNotFoundError:
     print(f"Space '{repo_id}' created.")
 
 api.upload_folder(
-    folder_path="/content/drive/MyDrive/Great_learning/MLOPS/tourism_project/data",
+    folder_path="data",
     repo_id=repo_id,
     repo_type=repo_type,
 )
