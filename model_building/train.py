@@ -138,7 +138,8 @@ with mlflow.start_run():
     })
 
     # Save the model locally
-    model_path = "best_churn_model_v1.joblib"
+    os.makedirs("artifacts", exist_ok=True)
+    model_path = "artifacts/best_tourism_package_model_v1.joblib"
     joblib.dump(best_model, model_path)
 
     # Log the model artifact
@@ -152,11 +153,11 @@ with mlflow.start_run():
     # Step 1: Check if the space exists
     try:
         api.repo_info(repo_id=repo_id, repo_type=repo_type)
-        print(f"Space '{repo_id}' already exists. Using it.")
+        print(f"Model '{repo_id}' already exists. Using it.")
     except RepositoryNotFoundError:
-        print(f"Space '{repo_id}' not found. Creating new space...")
+        print(f"Model '{repo_id}' not found. Creating new space...")
         create_repo(repo_id=repo_id, repo_type=repo_type, private=False)
-        print(f"Space '{repo_id}' created.")
+        print(f"Model '{repo_id}' created.")
 
     # create_repo("churn-model", repo_type="model", private=False)
     api.upload_file(
