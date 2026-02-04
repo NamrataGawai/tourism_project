@@ -40,7 +40,7 @@ DurationOfPitch = st.number_input("Duration of Pitch (Duration of the sales pitc
 input_data = pd.DataFrame([{
     'Age': Age,
     'TypeofContact': TypeofContact,
-    'CityTier': city_tier
+    'CityTier': city_tier,
     'Occupation': Occupation,
     'Gender': Gender,
     'MaritalStatus': MaritalStatus,
@@ -52,14 +52,12 @@ input_data = pd.DataFrame([{
     'NumberOfTrips': NumberOfTrips,
     'NumberOfChildrenVisiting': NumberOfChildrenVisiting,
     'PitchSatisfactionScore': PitchSatisfactionScore,
-    'OwnCar': 0 if OwnCar == "No" else 1
-    'Passport': 0 if Passport =="No" else 1,
+    'OwnCar': 0 if OwnCar == "No" else 1,
+    'Passport': 0 if Passport == "No" else 1,
     'MonthlyIncome': MonthlyIncome,
     'DurationOfPitch': DurationOfPitch
-
-
-
 }])
+
 
 # Set the classification threshold
 classification_threshold = 0.45
